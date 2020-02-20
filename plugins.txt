@@ -75,3 +75,4 @@ jdk-tool:1.4
 ssh-credentials:1.18.1
 workflow-multibranch:2.21
 gitlab-plugin:1.5.13
+
