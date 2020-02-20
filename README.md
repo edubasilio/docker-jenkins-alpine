@@ -94,12 +94,9 @@ Jenkins on Alpine Docker Image Base with:
 #### jenkins_home
 In _host machine_, create a directory called `jenkins_home`. This directory will use as docker volume linked to `/var/jenkins_home` in container docker.
 
-#### backup
-In _host machine_, create a directory called `backup`. The _thinBackup_ jenkins plugin use this directory to keep backup files.
-
 ### Create Container
 ```sh
-docker create --name container_name -p 8080:8080 -v /path/to/jenkins_home:/var/jenkins_home -v /path/to/backup:/srv/backup basiliocode/jenkins-alpine
+docker create --name container_name -p 8080:8080 -v /path/to/jenkins_home:/var/jenkins_home basiliocode/jenkins-alpine
 ```
 
 ### Initial Config
@@ -110,12 +107,6 @@ Copy `initial_config` content directory to `/var/jenkins_home` and restart docke
 docker cp container_name:/var/tmp/initial_config/. /path/to/jenkins_home/
 ```
 * `/path/to/jenkins_home/` in _host machine_
-
-### Restore backup
-Copy backup content in `path/to/backup` volume to `/path/to/jenkins_home` volume and start docker container. The _thinBackup_ jenkins plugin is backup manager.
-```sh
-cp -r /path/to/backup/* /path/to/jenkins_home/
-```
 
 ### Start Container
 ```sh

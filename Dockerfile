@@ -14,13 +14,12 @@ ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk/
 # skip initial setup
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
-RUN mkdir /srv/backup
-RUN mkdir /srv/backup/initial_config
-RUN chown jenkins:jenkins /srv/backup
+#RUN mkdir /srv/backup
+#RUN chown jenkins:jenkins /srv/backup
 
-USER jenkins
-COPY plugins.txt /usr/share/jenkins/plugins.txt
-RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
+#USER jenkins
+#COPY plugins.txt /usr/share/jenkins/plugins.txt
+#RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/plugins.txt
 
 # initial config
 COPY initial_config /var/tmp/initial_config/
